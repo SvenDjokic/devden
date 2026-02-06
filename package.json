@@ -1,0 +1,18 @@
+{
+  "name": "devden",
+  "version": "1.0.0",
+  "private": true,
+  "description": "DevDen - Developer Tools Suite",
+  "scripts": {
+    "dev": "turbo dev",
+    "build": "turbo build",
+    "lint": "turbo lint"
+  },
+  "keywords": ["developer-tools", "devden", "monorepo"],
+  "author": "Sven Djokic",
+  "license": "MIT",
+  "packageManager": "pnpm@10.28.2",
+  "devDependencies": {
+    "turbo": "^2"
+  }
+}

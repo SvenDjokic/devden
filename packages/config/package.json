@@ -1,0 +1,9 @@
+{
+  "name": "@devden/config",
+  "version": "0.0.0",
+  "private": true,
+  "exports": {
+    "./tailwind": "./tailwind.config.ts",
+    "./tsconfig": "./tsconfig.json"
+  }
+}
