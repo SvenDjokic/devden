@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useMemo, useCallback, useRef } from 'react';
 import { Header } from '@/components/regex/Header';
-import { CopyButton, CopyButtonRef } from '@/components/regex/CopyButton';
+import { CopyButton, CopyButtonRef, CollapsibleSection, FeatureList } from '@devden/ui';
 import { FlagsToggle } from '@/components/regex/FlagsToggle';
 import { ShortcutsPopover } from '@/components/regex/ShortcutsPopover';
 import { PatternSelector } from '@/components/regex/PatternSelector';
@@ -10,7 +10,6 @@ import { useRegex, getHighlightedSegments, RegexFlags, DEFAULT_FLAGS } from '@/l
 import { useLocalStorage } from '@/lib/useLocalStorage';
 import { useKeyboardShortcuts, ShortcutConfig } from '@/lib/useKeyboardShortcuts';
 import { RegexSchema } from '@/components/regex/RegexSchema';
-import { CollapsibleSection, FeatureList } from '@/components/regex/seo';
 
 const PATTERN_STORAGE_KEY = 'devden-regex-pattern';
 const TEST_STRING_STORAGE_KEY = 'devden-regex-test-string';

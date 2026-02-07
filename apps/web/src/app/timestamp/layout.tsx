@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { NavigationProvider } from "@/components/timestamp/navigation/NavigationProvider";
+import { NavigationProvider } from "@/components/shared/navigation";
 
 export const metadata: Metadata = {
   title: "Unix Timestamp Converter - Epoch to Date Online | DevDen",

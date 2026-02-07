@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useMemo, useCallback, useRef } from 'react';
 import { Header } from '@/components/timestamp/Header';
-import { CopyButton, CopyButtonRef } from '@/components/timestamp/CopyButton';
+import { CopyButton, CopyButtonRef, CollapsibleSection, CodeExamples, FeatureList } from '@devden/ui';
 import { ShortcutsPopover } from '@/components/timestamp/ShortcutsPopover';
 import { ModeToggle } from '@/components/timestamp/ModeToggle';
 import { TimestampOutput } from '@/components/timestamp/TimestampOutput';
@@ -12,7 +12,6 @@ import { timestampToDate, dateToTimestamp, getCurrentTimestamp, getTimestampPres
 import { useLocalStorage } from '@/lib/useLocalStorage';
 import { useKeyboardShortcuts, ShortcutConfig } from '@/lib/useKeyboardShortcuts';
 import { TimestampSchema } from '@/components/timestamp/TimestampSchema';
-import { CollapsibleSection, CodeExamples, FeatureList } from '@/components/timestamp/seo';
 
 type ConversionMode = 'toDate' | 'toTimestamp';
 

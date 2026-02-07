@@ -47,9 +47,7 @@ export function CollapsibleSection({
         style={{ gridTemplateRows: isOpen ? '1fr' : '0fr' }}
       >
         <div className="overflow-hidden">
-          <div className="pb-4">
-            {children}
-          </div>
+          <div className="pb-4">{children}</div>
         </div>
       </div>
     </div>

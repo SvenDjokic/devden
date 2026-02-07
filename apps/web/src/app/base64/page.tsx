@@ -4,14 +4,13 @@ import { useState, useEffect, useMemo, useCallback, useRef } from 'react';
 import { Header } from '@/components/base64/Header';
 import { TextInput } from '@/components/base64/TextInput';
 import { TextOutput } from '@/components/base64/TextOutput';
-import { CopyButton, CopyButtonRef } from '@/components/base64/CopyButton';
+import { CopyButton, CopyButtonRef, CollapsibleSection, CodeExamples, FeatureList } from '@devden/ui';
 import { ModeToggle, Mode } from '@/components/base64/ModeToggle';
 import { ShortcutsPopover } from '@/components/base64/ShortcutsPopover';
 import { encodeBase64, decodeBase64, detectBase64 } from '@/lib/base64';
 import { useLocalStorage } from '@/lib/useLocalStorage';
 import { useKeyboardShortcuts, ShortcutConfig } from '@/lib/useKeyboardShortcuts';
 import { Base64Schema } from '@/components/base64/Base64Schema';
-import { CollapsibleSection, CodeExamples, FeatureList } from '@/components/base64/seo';
 
 const LOCAL_STORAGE_KEY = 'devden-base64-input';
 const MODE_STORAGE_KEY = 'devden-base64-mode';

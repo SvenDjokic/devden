@@ -67,7 +67,7 @@ export const TOOLS: Tool[] = [
     icon: '⏱',
     category: 'converters',
     tier: 'free',
-    available: false,
+    available: true,
   },
   {
     id: 'regex',

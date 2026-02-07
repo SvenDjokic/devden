@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { NavigationProvider } from "@/components/toon/navigation/NavigationProvider";
+import { NavigationProvider } from "@/components/shared/navigation";
 
 export const metadata: Metadata = {
   title: "TOON Converter - JSON to TOON Format",
@@ -16,5 +16,5 @@ export const metadata: Metadata = {
 };
 
 export default function ToonLayout({ children }: { children: React.ReactNode }) {
-  return <NavigationProvider>{children}</NavigationProvider>;
+  return <NavigationProvider currentToolId="toon">{children}</NavigationProvider>;
 }

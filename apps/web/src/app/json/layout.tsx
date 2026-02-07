@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { NavigationProvider } from "@/components/json/navigation/NavigationProvider";
+import { NavigationProvider } from "@/components/shared/navigation";
 
 export const metadata: Metadata = {
   title: "JSON Formatter - Free Online JSON Beautifier",
@@ -45,5 +45,5 @@ export default function JsonLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return <NavigationProvider>{children}</NavigationProvider>;
+  return <NavigationProvider currentToolId="json-formatter">{children}</NavigationProvider>;
 }

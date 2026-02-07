@@ -5,7 +5,7 @@ import { PageLayout, ResultSection } from "@/components/llm-pricing/layout";
 import { PricingForm, PricingTable } from "@/components/llm-pricing/calculator";
 import { calculatePricing, PricingInput, PricingResult } from "@/lib/calculatePricing";
 import { pricingData } from "@/data/pricing";
-import { CollapsibleSection, FeatureList } from "@/components/llm-pricing/seo";
+import { CollapsibleSection, FeatureList } from "@devden/ui";
 
 export default function Home() {
   const [result, setResult] = useState<PricingResult | null>(null);

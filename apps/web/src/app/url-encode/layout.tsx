@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { NavigationProvider } from "@/components/url-encode/navigation/NavigationProvider";
+import { NavigationProvider } from "@/components/shared/navigation";
 
 export const metadata: Metadata = {
   title: "URL Encoder/Decoder - Free Online Tool",
@@ -16,5 +16,5 @@ export const metadata: Metadata = {
 };
 
 export default function UrlEncodeLayout({ children }: { children: React.ReactNode }) {
-  return <NavigationProvider>{children}</NavigationProvider>;
+  return <NavigationProvider currentToolId="url-encode">{children}</NavigationProvider>;
 }

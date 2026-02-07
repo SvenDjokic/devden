@@ -13,7 +13,10 @@ interface CodeExamplesProps {
   storageKey?: string;
 }
 
-export function CodeExamples({ examples, storageKey = 'devden-code-lang' }: CodeExamplesProps) {
+export function CodeExamples({
+  examples,
+  storageKey = 'devden-code-lang',
+}: CodeExamplesProps) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [copied, setCopied] = useState(false);
   const [isHydrated, setIsHydrated] = useState(false);

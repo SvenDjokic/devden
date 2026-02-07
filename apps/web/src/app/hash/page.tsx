@@ -3,15 +3,13 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { Header } from '@/components/hash/Header';
 import { TextInput } from '@/components/hash/TextInput';
-import { CopyButton, CopyButtonRef } from '@/components/hash/CopyButton';
+import { CopyButton, CopyButtonRef, CollapsibleSection, CodeExamples } from '@devden/ui';
 import { ShortcutsPopover } from '@/components/hash/ShortcutsPopover';
 import { useLocalStorage } from '@/lib/useLocalStorage';
 import { useKeyboardShortcuts, ShortcutConfig } from '@/lib/useKeyboardShortcuts';
 import { Algorithm, ALGORITHM_LABELS, ALGORITHMS, EMPTY_HASHES, hashTextAll, hashFileAll } from '@/lib/hash';
 import { FileDropZone } from '@/components/hash/FileDropZone';
-import { HashSchema } from '@/components/hash/seo/HashSchema';
-import { CollapsibleSection } from '@/components/hash/seo/CollapsibleSection';
-import { CodeExamples } from '@/components/hash/seo/CodeExamples';
+import { HashSchema } from '@/components/hash/HashSchema';
 
 const LOCAL_STORAGE_KEY = 'devden-hash-input';
 

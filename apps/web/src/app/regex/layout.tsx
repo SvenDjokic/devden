@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { NavigationProvider } from "@/components/regex/navigation/NavigationProvider";
+import { NavigationProvider } from "@/components/shared/navigation";
 
 export const metadata: Metadata = {
   title: "Regex Tester - Free Online Regular Expression Tool",
@@ -16,5 +16,5 @@ export const metadata: Metadata = {
 };
 
 export default function RegexLayout({ children }: { children: React.ReactNode }) {
-  return <NavigationProvider>{children}</NavigationProvider>;
+  return <NavigationProvider currentToolId="regex">{children}</NavigationProvider>;
 }

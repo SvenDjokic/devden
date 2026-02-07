@@ -5,7 +5,7 @@ import { Header } from '@/components/toon/Header';
 import { TextInput } from '@/components/toon/TextInput';
 import { TextOutput } from '@/components/toon/TextOutput';
 import { ShortcutsPopover } from '@/components/toon/ShortcutsPopover';
-import { CollapsibleSection, CodeExamples } from '@/components/toon/seo';
+import { CollapsibleSection, CodeExamples } from '@devden/ui';
 import { useLocalStorage } from '@/lib/useLocalStorage';
 import { useKeyboardShortcuts, ShortcutConfig } from '@/lib/useKeyboardShortcuts';
 import {

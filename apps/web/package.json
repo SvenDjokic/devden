@@ -9,6 +9,8 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@devden/ui": "workspace:*",
+    "@devden/utils": "workspace:*",
     "@fontsource/inter": "^5.2.8",
     "@fontsource/jetbrains-mono": "^5.2.8",
     "@radix-ui/react-slot": "^1.2.4",

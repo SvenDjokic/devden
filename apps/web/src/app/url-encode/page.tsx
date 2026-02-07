@@ -4,14 +4,13 @@ import { useState, useEffect, useMemo, useCallback, useRef } from 'react';
 import { Header } from '@/components/url-encode/Header';
 import { TextInput } from '@/components/url-encode/TextInput';
 import { TextOutput } from '@/components/url-encode/TextOutput';
-import { CopyButton, CopyButtonRef } from '@/components/url-encode/CopyButton';
+import { CopyButton, CopyButtonRef, CollapsibleSection, CodeExamples, FeatureList } from '@devden/ui';
 import { ModeToggle, Mode } from '@/components/url-encode/ModeToggle';
 import { ShortcutsPopover } from '@/components/url-encode/ShortcutsPopover';
 import { encodeURL, decodeURL, detectURLEncoding, parseURLComponents, parseQueryString } from '@/lib/urlEncode';
 import { useLocalStorage } from '@/lib/useLocalStorage';
 import { useKeyboardShortcuts, ShortcutConfig } from '@/lib/useKeyboardShortcuts';
 import { URLEncodeSchema } from '@/components/url-encode/URLEncodeSchema';
-import { CollapsibleSection, CodeExamples, FeatureList } from '@/components/url-encode/seo';
 
 const LOCAL_STORAGE_KEY = 'devden-url-encode-input';
 const MODE_STORAGE_KEY = 'devden-url-encode-mode';

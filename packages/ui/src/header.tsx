@@ -1,19 +1,40 @@
 'use client';
 
-import { useNavigation } from '@/components/shared/navigation';
+import * as React from 'react';
 
-export function Header() {
-  const { openMobileMenu } = useNavigation();
+interface HeaderProps {
+  /** Tool name displayed after "DevDen" */
+  toolName: string;
+  /** Icon content (text or React node) */
+  icon: React.ReactNode;
+  /** SR-only title for accessibility */
+  srTitle: string;
+  /** Function to open mobile menu */
+  onOpenMobileMenu: () => void;
+  /** Optional right side content */
+  rightContent?: React.ReactNode;
+  className?: string;
+}
+
+export function Header({
+  toolName,
+  icon,
+  srTitle,
+  onOpenMobileMenu,
+  rightContent,
+  className = '',
+}: HeaderProps) {
   return (
-    // Header only shows on mobile (lg:hidden) when sidebar is visible on desktop
-    <header className="border-b border-border bg-card/50 backdrop-blur-sm lg:hidden">
+    <header
+      className={`border-b border-border bg-card/50 backdrop-blur-sm lg:hidden ${className}`}
+    >
       <div className="px-4 sm:px-6">
-        <h1 className="sr-only">JSON to TOON Converter - Reduce LLM Token Costs</h1>
+        <h1 className="sr-only">{srTitle}</h1>
         <div className="flex items-center justify-between h-14">
           <div className="flex items-center gap-3">
             {/* Hamburger menu button for mobile sidebar */}
             <button
-              onClick={openMobileMenu}
+              onClick={onOpenMobileMenu}
               className="p-2 -ml-2 text-muted-foreground hover:text-foreground transition-colors"
               aria-label="Open navigation menu"
             >
@@ -34,20 +55,24 @@ export function Header() {
             </button>
             <div className="flex items-center gap-2">
               <div className="w-7 h-7 rounded-md bg-primary-500 flex items-center justify-center">
-                <span className="text-white font-bold text-[10px]">{'{ }'}</span>
+                <span className="text-white font-bold text-xs">{icon}</span>
               </div>
               <span className="font-semibold text-sm text-foreground">
-                DevDen <span className="text-muted-foreground font-normal">TOON</span>
+                DevDen <span className="text-muted-foreground font-normal">{toolName}</span>
               </span>
             </div>
           </div>
           <div className="flex items-center gap-4">
-            <span className="text-xs text-muted-foreground hidden sm:inline">
-              100% client-side
-            </span>
+            {rightContent || (
+              <span className="text-xs text-muted-foreground hidden sm:inline">
+                100% client-side
+              </span>
+            )}
           </div>
         </div>
       </div>
     </header>
   );
 }
+
+export type { HeaderProps };

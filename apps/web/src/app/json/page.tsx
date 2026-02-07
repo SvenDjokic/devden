@@ -5,7 +5,7 @@ import { Header } from '@/components/json/Header';
 import { JsonInput } from '@/components/json/JsonInput';
 import { JsonOutput } from '@/components/json/JsonOutput';
 import { ErrorPanel } from '@/components/json/ErrorPanel';
-import { CopyButton, CopyButtonRef } from '@/components/json/CopyButton';
+import { CopyButton, CopyButtonRef, CollapsibleSection, CodeExamples, FeatureList } from '@devden/ui';
 import { FileUpload, FileUploadRef } from '@/components/json/FileUpload';
 import { ToolbarOptions, IndentOption } from '@/components/json/ToolbarOptions';
 import { ShortcutsPopover } from '@/components/json/ShortcutsPopover';
@@ -14,7 +14,6 @@ import { useDebounce } from '@/lib/useDebounce';
 import { useLocalStorage } from '@/lib/useLocalStorage';
 import { useKeyboardShortcuts, ShortcutConfig } from '@/lib/useKeyboardShortcuts';
 import { JsonLdSchema } from '@/components/json/JsonLdSchema';
-import { CollapsibleSection, CodeExamples, FeatureList } from '@/components/json/seo';
 
 const LOCAL_STORAGE_KEY = 'devden-json-input';
 const INDENT_STORAGE_KEY = 'devden-json-indent';

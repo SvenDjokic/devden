@@ -1,6 +1,6 @@
 'use client';
 
-import { CopyButton } from './CopyButton';
+import { CopyButton } from '@devden/ui';
 
 interface TextOutputProps {
   value: string;

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { NavigationProvider } from "@/components/hash/navigation/NavigationProvider";
+import { NavigationProvider } from "@/components/shared/navigation";
 
 export const metadata: Metadata = {
   title: "Hash Generator - MD5, SHA-256, SHA-512 Online",
@@ -16,5 +16,5 @@ export const metadata: Metadata = {
 };
 
 export default function HashLayout({ children }: { children: React.ReactNode }) {
-  return <NavigationProvider>{children}</NavigationProvider>;
+  return <NavigationProvider currentToolId="hash">{children}</NavigationProvider>;
 }

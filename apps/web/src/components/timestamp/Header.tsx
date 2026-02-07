@@ -1,6 +1,6 @@
 'use client';
 
-import { useNavigation } from '@/components/timestamp/navigation/NavigationProvider';
+import { useNavigation } from '@/components/shared/navigation';
 
 export function Header() {
   const { openMobileMenu } = useNavigation();

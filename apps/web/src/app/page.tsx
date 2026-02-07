@@ -1,65 +1,180 @@
-import Image from "next/image";
+import { Metadata } from 'next';
+import Link from 'next/link';
+import { TOOLS, CATEGORY_LABELS, CATEGORY_ORDER, getToolsByCategory } from '@/lib/toolRegistry';
+
+export const metadata: Metadata = {
+  title: 'DevDen - Free Developer Tools',
+  description:
+    'Free online developer tools that just work. JSON formatter, Base64 encoder, Regex tester, URL encoder, Hash generator, and more. 100% client-side — your data never leaves your browser.',
+  keywords: [
+    'developer tools',
+    'dev tools',
+    'json formatter',
+    'base64 encoder',
+    'regex tester',
+    'url encoder',
+    'hash generator',
+    'online tools',
+    'free tools',
+  ],
+  openGraph: {
+    title: 'DevDen - Free Developer Tools',
+    description:
+      'Free online developer tools that just work. JSON formatter, Base64 encoder, Regex tester, and more. 100% client-side.',
+    url: 'https://devden.dev',
+    siteName: 'DevDen',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'DevDen - Free Developer Tools',
+    description:
+      'Free online developer tools that just work. 100% client-side — your data never leaves your browser.',
+  },
+  alternates: {
+    canonical: 'https://devden.dev',
+  },
+};
+
+function ToolCard({
+  name,
+  description,
+  href,
+  icon,
+  available,
+}: {
+  name: string;
+  description: string;
+  href: string;
+  icon: string;
+  available: boolean;
+}) {
+  if (!available) {
+    return (
+      <div className="group relative rounded-lg border border-border/50 bg-card/30 p-4 opacity-50 cursor-not-allowed">
+        <div className="flex items-start gap-3">
+          <div className="w-10 h-10 rounded-md bg-muted/50 flex items-center justify-center shrink-0">
+            <span className="text-muted-foreground font-mono text-sm">{icon}</span>
+          </div>
+          <div className="min-w-0">
+            <h3 className="font-medium text-sm text-muted-foreground">{name}</h3>
+            <p className="text-xs text-muted-foreground/60 mt-0.5">{description}</p>
+            <span className="inline-block mt-2 text-[10px] text-muted-foreground/40 uppercase tracking-wide">
+              Coming soon
+            </span>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <Link
+      href={href}
+      className="group relative rounded-lg border border-border/50 bg-card/30 p-4 transition-all hover:border-primary-500/50 hover:bg-card/50"
+    >
+      <div className="flex items-start gap-3">
+        <div className="w-10 h-10 rounded-md bg-primary-500/10 flex items-center justify-center shrink-0 group-hover:bg-primary-500/20 transition-colors">
+          <span className="text-primary-400 font-mono text-sm">{icon}</span>
+        </div>
+        <div className="min-w-0">
+          <h3 className="font-medium text-sm text-foreground group-hover:text-primary-400 transition-colors">
+            {name}
+          </h3>
+          <p className="text-xs text-muted-foreground mt-0.5">{description}</p>
+        </div>
+      </div>
+    </Link>
+  );
+}
+
+function JsonLdSchema() {
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'DevDen',
+    url: 'https://devden.dev',
+    description:
+      'Free online developer tools that just work. JSON formatter, Base64 encoder, Regex tester, and more.',
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: 'https://devden.dev/?q={search_term_string}',
+      'query-input': 'required name=search_term_string',
+    },
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+}
 
 export default function Home() {
+  const toolsByCategory = getToolsByCategory();
+  const availableTools = TOOLS.filter((t) => t.available);
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+    <>
+      <JsonLdSchema />
+      <div className="min-h-screen bg-background flex flex-col">
+        {/* Hero */}
+        <header className="pt-16 pb-12 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto text-center">
+            {/* Logo */}
+            <div className="flex items-center justify-center gap-3 mb-6">
+              <div className="w-12 h-12 rounded-lg bg-primary-500 flex items-center justify-center">
+                <span className="text-white font-bold text-lg">{'{ }'}</span>
+              </div>
+              <h1 className="text-3xl sm:text-4xl font-bold text-foreground">DevDen</h1>
+            </div>
+
+            {/* Tagline */}
+            <p className="text-lg sm:text-xl text-muted-foreground mb-4">
+              Developer tools that just work.
+            </p>
+
+            {/* Trust signal */}
+            <p className="text-sm text-muted-foreground/60">
+              No signup. No tracking. 100% client-side.
+            </p>
+          </div>
+        </header>
+
+        {/* Tool Grid */}
+        <main className="flex-1 px-4 sm:px-6 lg:px-8 pb-16">
+          <div className="max-w-4xl mx-auto">
+            {/* Simple grid - all tools together */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+              {TOOLS.map((tool) => (
+                <ToolCard
+                  key={tool.id}
+                  name={tool.name}
+                  description={tool.description}
+                  href={tool.href}
+                  icon={tool.icon}
+                  available={tool.available}
+                />
+              ))}
+            </div>
+
+            {/* Tool count */}
+            <p className="text-center text-xs text-muted-foreground/40 mt-8">
+              {availableTools.length} free tools available
+            </p>
+          </div>
+        </main>
+
+        {/* Footer */}
+        <footer className="border-t border-border/50 py-6">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p className="text-xs text-muted-foreground/40">
+              Built for developers. Your data never leaves your browser.
+            </p>
+          </div>
+        </footer>
+      </div>
+    </>
   );
 }
